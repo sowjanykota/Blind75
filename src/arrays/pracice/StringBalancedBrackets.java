@@ -23,6 +23,11 @@ public class StringBalancedBrackets {
         }
         else
             System.out.println("Balanced");
+
+//        Stack<Character> stack1 = new Stack<>();
+//        for (int i = 0 ; i < str.length() ; i++) {
+//
+//        }
     }
     public static void correctWay(String str) {
         Stack<Character> stack = new Stack<>();

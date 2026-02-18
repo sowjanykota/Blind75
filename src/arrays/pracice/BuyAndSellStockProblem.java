@@ -1,9 +1,11 @@
 package arrays.pracice;
 
 public class BuyAndSellStockProblem {
+    // int[] prices = {7,1,5,3,6,4};
     public static void main(String[] args) {
         int[] prices = {7,1,5,3,6,4};
-        int buy = 0;
+        StickProblems(prices);
+        //int buy = 0;
 //        int diff = 0, max = 0, buypoint = 0, sellePoint = 0;
 //        for (int sell = 1 ; sell < prices.length ; sell++) {
 //            if(prices[sell] > prices[buy]) {
@@ -27,7 +29,8 @@ public class BuyAndSellStockProblem {
 //        System.out.println(max);
 //        System.out.println(buypoint + "  " + sellePoint);
 //        System.out.println("================");
-        StocksProblem(prices);
+
+       // StocksProblem(prices);
     }
 
 
@@ -51,5 +54,28 @@ public class BuyAndSellStockProblem {
         }
         System.out.println(maxProfilt);
         System.out.println(prices[start] + "  "+ prices[end]);
+    }
+
+    public static void StickProblems(int[] array) {
+        int buy = 0;
+        int start = 0, end = 0;
+        int largest = 0;
+        for (int sell = 1 ; sell < array.length ; sell++) {
+
+            if(array[buy] > array[sell]) {
+                buy = sell;
+            }
+            else  {
+                int diff = array[sell] - array[buy];
+                    if (largest < diff) {
+                        largest = diff;
+                        start = buy;
+                        end = sell;
+                    }
+            }
+        }
+        System.out.println(largest);
+        System.out.println(start);
+        System.out.println(end);
     }
 }

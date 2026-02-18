@@ -14,20 +14,24 @@ public class NthRepeatingElementInArray {
         for (int i = 0 ; i < nums.length ; i++) {
             map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
         }
+        Map<Integer, Integer> newHashMap3 = map.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.reverseOrder())).collect(Collectors.toMap(
+                Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new
+        ));
 
-        Map<Integer, Integer> newHashMap1 = map.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.reverseOrder())).collect(
-                Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
-        Map<Integer, Integer> newHashMap =map.entrySet().stream().sorted(Map.Entry.comparingByValue()).
-                limit(k).
-                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new))
-        ;
-        Map<Integer, Integer> newHashMaprerv =map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).
-                limit(k).
-                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new))
-                ;
-        System.out.println(newHashMap1);
-        System.out.println(newHashMap);
-        System.out.println(newHashMaprerv);
+//        Map<Integer, Integer> newHashMap1 = map.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.reverseOrder())).collect(
+//                Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+//        Map<Integer, Integer> newHashMap =map.entrySet().stream().sorted(Map.Entry.comparingByValue()).
+//                limit(k).
+//                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new))
+//        ;
+//        Map<Integer, Integer> newHashMaprerv =map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).
+//                limit(k).
+//                collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new))
+//                ;
+//        System.out.println(newHashMap1);
+//        System.out.println(newHashMap);
+//        System.out.println(newHashMaprerv);
+        System.out.println(newHashMap3);
         int count = 0;
 
         for (Map.Entry<Integer, Integer> m :  map.entrySet()) {

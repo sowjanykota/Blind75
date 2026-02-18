@@ -15,5 +15,11 @@ public class NonRepeatingCharacterInArray {
                 System.out.println(m.getKey());
             }
         }
+        for (int a : arary) {
+            map.put(a, map.getOrDefault(a, 0) + 1);
+            for (Map.Entry<Integer, Integer> m : map.entrySet()) {
+
+            }
+        }
     }
 }

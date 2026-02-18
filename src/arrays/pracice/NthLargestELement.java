@@ -6,7 +6,8 @@ public class NthLargestELement {
 
         int n = 2;
         int finalMax = 0;
-        secondLargestNumber(array, n);
+       // secondLargestNumber(array, n);
+        nthLargesr(array, n);
         boolean[] visisted = new boolean[array.length];
 //        for (int i = 0 ; i < n ; i++) {
 //            int max = Integer.MIN_VALUE;
@@ -98,6 +99,22 @@ public class NthLargestELement {
             array[index] = Integer.MIN_VALUE;;
         }
         System.out.println(largest);
+    }
+    public static void nthLargesr(int[] arraya, int n) {
+        int nthMax = 0;
+        for (int  i = 0 ; i < n ; i++) {
+            int max = Integer.MIN_VALUE, index = 0;
+            for (int j = 0 ; j < arraya.length ; j++) {
+                if(max < arraya[j]) {
+                    max = arraya[j];
+                    index = j;
+                }
+
+            }
+            arraya[index] = Integer.MIN_VALUE;
+            nthMax = max;
+        }
+        System.out.println(nthMax);
     }
 
 
